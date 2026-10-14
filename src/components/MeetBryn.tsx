@@ -59,8 +59,7 @@ export default function MeetBryn() {
               Reece. <span className="text-ink">All in one year.</span>
             </p>
             <p data-reveal="" style={{ "--d": 3 } as CSSProperties} className="mt-4 max-w-xl text-lg leading-relaxed text-slate max-sm:hidden">
-              {site.doctor} grew up in Laurens, Iowa, played four years of college softball, then went to dental
-              school at the University of Iowa. She&apos;s been on Washington Ave ever since.
+              {`${site.doctor} grew up in Laurens, Iowa, played four years of college softball, then went to dental school at the University of Iowa. She's been on Washington Ave ever since.`}
             </p>
 
             <blockquote data-reveal="" className="mt-7 border-l-2 border-teal pl-5 max-sm:mt-4 max-sm:pl-4">
@@ -87,7 +86,7 @@ export default function MeetBryn() {
                 <p className="display text-[4.5rem] leading-[0.8] text-ink max-sm:text-6xl">
                   20<em className="text-teal">18</em>
                 </p>
-                <p className="kicker text-right text-[0.6rem] text-slate">One year.<br />Six boxes.</p>
+                <p className="kicker text-right text-[0.6rem] text-slate">One year. <br />Six boxes.</p>
               </div>
               <ul className="mt-5 grid gap-0.5 max-sm:mt-3">
                 {year2018.map((y, i) => (

@@ -183,6 +183,20 @@ body {
   }
 }
 
+/* Invisible touch area of at least 44x44 around small links and chips; the visual size is unchanged. */
+.hit {
+  position: relative;
+}
+.hit::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  translate: -50% -50%;
+}
+
 /* ------------------------------------------------------------------
    Phone/tablet motion. Desktop (lg+) never matches any of this.
    ------------------------------------------------------------------ */

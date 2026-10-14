@@ -39,7 +39,7 @@ export function BrandLockup({ tone = "light", className = "" }: { tone?: "light"
           Iowa River
         </span>
         <span className={`kicker mt-0.5 block truncate text-[0.58rem] ${dark ? "text-aqua" : "text-teal-deep"}`}>
-          Dentistry · {site.address.city}
+          {`Dentistry · ${site.address.city}`}
         </span>
       </span>
     </span>

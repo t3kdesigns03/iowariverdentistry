@@ -77,7 +77,7 @@ export default function FirstVisit() {
                     href={site.links.forms}
                     target="_blank"
                     rel="noopener"
-                    className="mt-3 inline-flex items-center gap-2 rounded-lg text-sm font-semibold text-teal-deep underline decoration-teal/40 underline-offset-4 hover:decoration-teal"
+                    className="hit mt-3 inline-flex items-center gap-2 rounded-lg text-sm font-semibold text-teal-deep underline decoration-teal/40 underline-offset-4 hover:decoration-teal"
                   >
                     <FileIcon className="h-4 w-4" />
                     New-patient forms (PDF)

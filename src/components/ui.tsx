@@ -80,9 +80,9 @@ export function CallButton({
         <PhoneIcon className="h-6 w-6 shrink-0" />
         <span className="leading-tight">
           <span className="block text-xl font-semibold tabular-nums sm:text-2xl">
-            {label ?? "Call"} {site.phone.display}
+            {`${label ?? "Call"} ${site.phone.display}`}
           </span>
-          <span className="block text-sm opacity-80">{site.frontDesk} probably answers.</span>
+          <span className="block text-sm opacity-80">{`${site.frontDesk} probably answers.`}</span>
         </span>
       </a>
     );
@@ -94,7 +94,7 @@ export function CallButton({
     >
       <PhoneIcon className="h-5 w-5 shrink-0" />
       <span className="tabular-nums">
-        {label ?? "Call"} {site.phone.display}
+        {`${label ?? "Call"} ${site.phone.display}`}
       </span>
     </a>
   );

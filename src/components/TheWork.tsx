@@ -49,7 +49,7 @@ export default function TheWork() {
                   type="button"
                   onClick={() => pickSymptom(s.picks[0])}
                   aria-label={`Open the picker: ${label(s.picks[0])}`}
-                  className="tap -my-1 inline-flex h-9 shrink-0 items-center gap-1 self-center rounded-full bg-aqua-mist pl-2 pr-2.5 text-teal-deep sm:hidden"
+                  className="tap hit -my-1 inline-flex h-9 shrink-0 items-center gap-1 self-center rounded-full bg-aqua-mist pl-2 pr-2.5 text-teal-deep sm:hidden"
                 >
                   <SymptomIcon id={s.picks[0]} className="h-5 w-5" />
                   <ArrowIcon className="h-3.5 w-3.5 -rotate-90" />

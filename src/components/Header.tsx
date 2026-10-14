@@ -132,7 +132,7 @@ function JumpBar() {
               href={j.href}
               data-jump={j.href}
               aria-current={on ? "true" : undefined}
-              className={`tap relative inline-flex h-8 shrink-0 items-center rounded-full px-3.5 text-[0.82rem] font-semibold transition-colors duration-300 ${
+              className={`tap hit inline-flex h-8 shrink-0 items-center rounded-full px-3.5 text-[0.82rem] font-semibold transition-colors duration-300 ${
                 on ? "text-paper" : "text-slate"
               }`}
             >

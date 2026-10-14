@@ -1,19 +1,26 @@
 import type { CSSProperties } from "react";
+import { formatTime } from "@/lib/hours";
 import { site } from "@/lib/site";
 import { RiverPostcard } from "./Art";
 import OpenStatus from "./OpenStatus";
 import { AlertIcon, ArrowIcon, MailIcon, PinIcon } from "./icons";
 import { CallButton, Container, SectionLabel, SectionTitle } from "./ui";
 
+// Mon..Sun, built from site.hours so the strip can't drift from the open/closed badge.
+const opens = formatTime(site.hours.open);
+const closes = formatTime(site.hours.close);
 const week = [
-  { d: "Mon", open: true },
-  { d: "Tue", open: true },
-  { d: "Wed", open: true },
-  { d: "Thu", open: true },
-  { d: "Fri", open: false },
-  { d: "Sat", open: false },
-  { d: "Sun", open: false },
-];
+  [1, "Mon", "Monday"],
+  [2, "Tue", "Tuesday"],
+  [3, "Wed", "Wednesday"],
+  [4, "Thu", "Thursday"],
+  [5, "Fri", "Friday"],
+  [6, "Sat", "Saturday"],
+  [0, "Sun", "Sunday"],
+].map(([n, d, day]) => {
+  const open = (site.hours.workdays as readonly number[]).includes(n as number);
+  return { d: d as string, open, label: `${day}: ${open ? `${opens} to ${closes}` : "Closed"}` };
+});
 
 export default function Visit() {
   return (
@@ -26,7 +33,7 @@ export default function Visit() {
               922 Washington Ave. <em className="text-teal-deep">Iowa Falls.</em>
             </SectionTitle>
             <p data-reveal="" style={{ "--d": 2 } as CSSProperties} className="mt-4 text-lg text-slate max-sm:text-base">
-              Serving {site.towns.join(" and ")}, and the towns in between.
+              {`Serving ${site.towns.join(" and ")}, and the towns in between.`}
             </p>
 
             {/* Hours as a week strip */}
@@ -35,7 +42,7 @@ export default function Visit() {
                 <p className="kicker text-[0.62rem] text-teal-deep">Hours</p>
                 <OpenStatus className="text-sm font-medium text-slate" />
               </div>
-              <ul className="mt-3 grid grid-cols-7 gap-1.5">
+              <ul aria-label="Hours by day" className="mt-3 grid grid-cols-7 gap-1.5">
                 {week.map((w) => (
                   <li
                     key={w.d}
@@ -43,22 +50,31 @@ export default function Visit() {
                       w.open ? "bg-navy-900 text-paper" : "border border-dashed border-line text-slate/70"
                     }`}
                   >
-                    <span className="kicker text-[0.58rem] tracking-[0.14em]">{w.d}</span>
-                    <span className={`mt-1 text-[0.7rem] leading-tight ${w.open ? "text-aqua" : ""}`}>
-                      {w.open ? "7:30–4:30" : "Closed"}
-                    </span>
+                    {/* One clean sentence per day for screen readers; the stacked cell is visual only. */}
+                    <span className="sr-only">{w.label}</span>
+                    <span aria-hidden="true" className="kicker text-[0.58rem] tracking-[0.14em]">{w.d}</span>
+                    {w.open ? (
+                      <span aria-hidden="true" className="mt-1 flex flex-col text-[0.66rem] leading-tight text-aqua">
+                        <span>{opens}</span>
+                        <span>{closes}</span>
+                      </span>
+                    ) : (
+                      <span aria-hidden="true" className="mt-1 text-[0.66rem] leading-tight">
+                        Closed
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
               <p className="mt-2 text-sm text-slate max-sm:sr-only">
-                {site.hours.days}, {site.hours.time}. {site.hours.closed}.
+                {`${site.hours.days}, ${site.hours.time}. ${site.hours.closed}.`}
               </p>
             </div>
 
             <div data-reveal="" className="mt-6 flex gap-3 rounded-2xl border border-ember/25 bg-[#fbeee6] p-4 max-sm:mt-4 max-sm:p-3 max-sm:text-[0.92rem]">
               <AlertIcon className="mt-0.5 h-5 w-5 shrink-0 text-ember" />
               <p className="leading-snug text-ink">
-                <span className="font-semibold">Emergency?</span> {site.emergency}
+                <span className="font-semibold">Emergency?</span>{` ${site.emergency}`}
               </p>
             </div>
 

@@ -18,7 +18,7 @@ export default function NotFound() {
           Back to home
         </Link>
         <a href={site.phone.href} className="btn-navy inline-flex min-h-12 items-center justify-center rounded-xl px-6 font-semibold">
-          Call {site.phone.display}
+          {`Call ${site.phone.display}`}
         </a>
       </div>
     </main>

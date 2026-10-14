@@ -26,14 +26,14 @@ export default function Trust() {
             <span className="display text-7xl leading-none text-paper max-sm:text-6xl">{site.rating.score}</span>
             <span>
               <Stars className="text-xl" />
-              <span className="block text-sm text-mist">from {site.rating.count} neighbors · Birdeye + Google</span>
+              <span className="block text-sm text-mist">{`from ${site.rating.count} neighbors · Birdeye + Google`}</span>
             </span>
           </p>
           <a
             href={site.links.reviews}
             target="_blank"
             rel="noopener"
-            className="inline-flex items-center gap-1.5 rounded-lg text-sm font-semibold text-aqua underline decoration-aqua/40 underline-offset-4 hover:decoration-aqua"
+            className="hit inline-flex items-center gap-1.5 rounded-lg text-sm font-semibold text-aqua underline decoration-aqua/40 underline-offset-4 hover:decoration-aqua"
           >
             Read them yourself
             <ArrowIcon className="h-4 w-4" />
@@ -51,7 +51,7 @@ export default function Trust() {
             >
               <blockquote>
                 <p className={`display leading-snug text-paper ${i === 0 ? "text-[1.4rem] sm:text-3xl" : "text-[1.3rem] sm:text-[1.7rem]"}`}>
-                  &ldquo;{r.quote}&rdquo;
+                  {`“${r.quote}”`}
                 </p>
               </blockquote>
               <p className="kicker mt-5 flex items-center gap-2 text-[0.58rem] text-aqua">

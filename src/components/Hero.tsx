@@ -36,7 +36,7 @@ export default function Hero() {
       <Container>
         <div className="relative">
           <p className="m-intro kicker text-[0.66rem] text-teal-deep sm:text-[0.72rem]">
-            Family dentistry · {site.address.city}, Iowa · Since {site.opened}
+            {`Family dentistry · ${site.address.city}, Iowa · Since ${site.opened}`}
           </p>
           <h1
             id="hero-title"
@@ -44,27 +44,27 @@ export default function Hero() {
             className="m-intro display mt-3 text-[3.25rem] text-ink sm:text-[5.2rem] lg:text-[5.9rem] xl:text-[6.6rem]"
           >
             Nobody loves <br className="sm:hidden" />
-            the dentist.
+            {"the dentist. "}
             <br />
             <em className="text-teal-deep">We know.</em>
           </h1>
 
-          {/* Desktop: tucked into the empty space beside "We know." */}
+          {/* Wide desktop: tucked into the empty space beside "We know." Below xl the headline runs too wide for it. */}
           <div
             style={{ "--d": 2 } as CSSProperties}
-            className="m-intro mt-5 max-sm:mt-3 lg:absolute lg:bottom-1 lg:right-0 lg:mt-0 lg:w-[26rem] xl:w-[30rem]"
+            className="m-intro mt-5 max-w-xl max-sm:mt-3 xl:absolute xl:bottom-1 xl:right-0 xl:mt-0 xl:w-[30rem] xl:max-w-none"
           >
-            <p className="text-lg leading-snug text-slate max-sm:text-[1.02rem] sm:text-xl lg:text-[1.05rem]">
+            <p className="text-lg leading-snug text-slate max-sm:text-[1.02rem] sm:text-xl xl:text-[1.05rem]">
               Dr. Bryn explains everything, <span className="text-ink">twice if you need it.</span> Zero judgement.
               Gentle hands.
             </p>
             <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
               <a
                 href="#reviews"
-                className="inline-flex items-center gap-2 rounded-full border border-line bg-white/70 px-3 py-1.5 font-semibold text-ink backdrop-blur hover:border-teal/50"
+                className="hit inline-flex items-center gap-2 rounded-full border border-line bg-white/70 px-3 py-1.5 font-semibold text-ink backdrop-blur hover:border-teal/50"
               >
                 <Stars className="text-[0.85rem]" />
-                {site.rating.score} from {site.rating.count} reviews
+                {`${site.rating.score} from ${site.rating.count} reviews`}
               </a>
               <span className="inline-flex min-h-[2.1rem] items-center rounded-full border border-line bg-white/70 px-3 py-1.5 font-medium text-slate backdrop-blur empty:hidden">
                 <OpenStatus />

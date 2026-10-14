@@ -198,7 +198,7 @@ function Idle() {
         ))}
       </ol>
       <p className="kicker mt-1 text-[0.64rem] text-slate/80">
-        Or skip all this: {site.phone.display}. {site.frontDesk} probably answers.
+        {`Or skip all this: ${site.phone.display}. ${site.frontDesk} probably answers.`}
       </p>
     </div>
   );
@@ -273,7 +273,7 @@ function PathList({ s, className = "" }: { s: Symptom; className?: string }) {
         <li key={p.name} className="relative flex gap-3">
           <span aria-hidden="true" className="relative mt-[0.4rem] h-2.5 w-2.5 shrink-0 rounded-full border-2 border-teal bg-paper" />
           <span className="text-[0.95rem] leading-snug">
-            <span className="font-semibold text-ink">{p.name}.</span> <span className="text-ink/80">{p.text}</span>
+            <span className="font-semibold text-ink">{`${p.name}.`}</span> <span className="text-ink/80">{p.text}</span>
           </span>
         </li>
       ))}
@@ -388,7 +388,7 @@ function MobilePicker({ activeId, setActiveId }: PickerProps) {
                           aria-selected={on}
                           aria-controls={`acc-${s.id}-${p.id}`}
                           onClick={() => setPart(p.id)}
-                          className={`tap min-h-10 rounded-lg px-1 text-[0.8rem] font-semibold transition-colors ${
+                          className={`tap hit min-h-10 rounded-lg px-1 text-[0.8rem] font-semibold transition-colors ${
                             on ? "bg-navy-900 text-paper shadow" : "text-teal-deep"
                           }`}
                         >
@@ -427,8 +427,8 @@ function MobilePicker({ activeId, setActiveId }: PickerProps) {
                   >
                     <PhoneIcon className="h-5 w-5 shrink-0" />
                     <span className="leading-tight">
-                      <span className="block font-semibold tabular-nums">Call {site.phone.display}</span>
-                      <span className="block text-xs opacity-80">{site.frontDesk} probably answers.</span>
+                      <span className="block font-semibold tabular-nums">{`Call ${site.phone.display}`}</span>
+                      <span className="block text-xs opacity-80">{`${site.frontDesk} probably answers.`}</span>
                     </span>
                   </a>
                 </div>

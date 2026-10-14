@@ -39,8 +39,8 @@ export default function StickyCall() {
         >
           <PhoneIcon className="h-5 w-5 shrink-0" />
           <span className="leading-tight">
-            <span className="block font-semibold tabular-nums">Call {site.phone.display}</span>
-            <span className="block text-[0.7rem] opacity-80">{site.frontDesk} probably answers.</span>
+            <span className="block font-semibold tabular-nums">{`Call ${site.phone.display}`}</span>
+            <span className="block text-[0.7rem] opacity-80">{`${site.frontDesk} probably answers.`}</span>
           </span>
         </a>
       </div>

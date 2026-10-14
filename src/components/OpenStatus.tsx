@@ -48,7 +48,7 @@ export default function OpenStatus({
       <span>
         {open ? "Open now" : "Closed"}
         {detail && stacked && <span className="block opacity-75">{label}</span>}
-        {detail && !stacked && <span className="opacity-75"> · {label}</span>}
+        {detail && !stacked && <span className="opacity-75">{` · ${label}`}</span>}
       </span>
     </span>
   );
